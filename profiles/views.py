@@ -12,16 +12,16 @@ class RegisterView(CreateView):
 
 	form_class = RegisterForm
 	template_name = 'registration/register.html'
-	success_url = reverse_lazy('login')
+	success_url = reverse_lazy('profiles:login')
 
 	def dispatch(self, *args, **kwargs):
 
 		return super(RegisterView, self).dispatch(*args, **kwargs)
 
 
-class LoginView(FormView):
+# class LoginView(FormView):
 
-	form_class = AuthenticationForm
-	template_name = 'registration/login.html'
+# 	form_class = AuthenticationForm
+# 	template_name = 'registration/login.html'
 
 

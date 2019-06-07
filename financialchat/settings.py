@@ -27,7 +27,7 @@ SECRET_KEY = 'agwjp4q8s08y2dfiamc-0q*zqj#zv4c_q8z)@5j1mufklby-=2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'profiles.User'
 
@@ -42,8 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #plugins
+    'channels',
+
     # project apps
-    'profiles'
+    'profiles',
+    'chat'
+
 ]
 
 MIDDLEWARE = [
@@ -57,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'financialchat.urls'
+
+ASGI_APPLICATION = 'financialchat.routing.application'
 
 TEMPLATES = [
     {
@@ -106,8 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('register')
-LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('profiles:register')
+LOGIN_URL = reverse_lazy('profiles:login')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

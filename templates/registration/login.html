@@ -7,7 +7,7 @@
 {% endif %}
 
 
-<form method="post" action="{% url 'login' %}"> <!-- Esta parte tiene que coincidir con el name del loginView -->
+<form method="post" action="{% url 'profiles:login' %}"> <!-- Esta parte tiene que coincidir con el name del loginView -->
 {% csrf_token %}
 
 {{ form.as_p }}

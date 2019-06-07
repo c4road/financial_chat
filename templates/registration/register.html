@@ -4,12 +4,12 @@
 
 <div class="col-sm-6 col-sm-offset-3">
 	<h1>Register</h1>
-		<form method="post" action="{% url 'register' %}">
+		<form method="post" action="{% url 'profiles:register' %}">
 		{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Register" />
 	</form>
-	<p>Did you need to <a href="{% url 'login' %}">Login</a>?</p>
+	<p>Did you need to <a href="{% url 'profiles:login' %}">Login</a>?</p>
 </div>
 
 
