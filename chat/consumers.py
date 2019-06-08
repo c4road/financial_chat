@@ -12,10 +12,9 @@ class ChatConsumer(AsyncConsumer):
 
 		print("connected", event)
 
-		other_user = self.scope['url_route']['kwargs']['username'] # username matches routing regex
+		thread_pk = self.scope['url_route']['kwargs']['pk'] # username matches routing regex
 		me = self.scope['user']
-		thread_object = await self.get_thread(me, other_user)
-
+		thread_object = await self.get_thread(thread_pk)
 		self.thread_object = thread_object
 		chat_room = 'thread_{}'.format(thread_object.id)
 		self.chat_room = chat_room
@@ -71,9 +70,9 @@ class ChatConsumer(AsyncConsumer):
 
 	# Obligatorio cada vez que voy a pedir algo de la base de datos 
 	@database_sync_to_async
-	def get_thread(self,user,other_username):
+	def get_thread(self, id):
 
-		return Thread.objects.get_or_create(user,other_username)[0]
+		return Thread.objects.get(id=id)
 
 	@database_sync_to_async
 	def create_chat_message(self, me, msg):

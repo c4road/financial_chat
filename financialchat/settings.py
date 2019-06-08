@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('profiles:register')
+LOGIN_REDIRECT_URL = reverse_lazy('chat:room-list')
 LOGIN_URL = reverse_lazy('profiles:login')
 
 # Internationalization

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>Chat with {% if user != object.first %}{{ object.first }}{% else %}{{ object.second }}{% endif %}</h3>
+<h3>Room: {{ object.name }}</h3>
 <ul id='chat-items'>
-{% for chat in object.chatmessage_set.all %}
+{% for chat in chat_messages reversed %}
 
 <li>{{ chat.message }} via {{ chat.user }}</li>
 

@@ -7,3 +7,12 @@ class ComposeForm(forms.Form):
                 attrs={"class": "form-control"}
                 )
             )
+
+
+class RoomForm(forms.Form):
+
+	name = forms.CharField(
+            widget=forms.TextInput(
+                attrs={"class": "form-control"}
+                )
+            )

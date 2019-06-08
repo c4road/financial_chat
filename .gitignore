@@ -1,3 +1,5 @@
+profiles/migrations/
+chat/migrations/
 bin/
 include/
 lib/
