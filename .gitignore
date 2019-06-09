@@ -6,6 +6,7 @@ lib/
 pip-selfcheck.json
 trydjango19.sublime-project
 trydjango19.sublime-workspace
+db.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
