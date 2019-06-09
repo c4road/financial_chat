@@ -4,11 +4,11 @@ from django.contrib.auth import get_user_model
 from .models import User
 
 
-
 class RegisterForm(forms.ModelForm):
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -18,7 +18,8 @@ class RegisterForm(forms.ModelForm):
         email = self.cleaned_data.get("email")
         qs = User.objects.filter(email__iexact=email)
         if qs.exists():
-            raise forms.ValidationError("Cannot use this email. It's already registered")
+            raise forms.ValidationError(
+                "Cannot use this email. It's already registered")
         return email
 
     def clean_password2(self):
@@ -38,4 +39,3 @@ class RegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-

@@ -3,16 +3,16 @@ from django import forms
 
 class ComposeForm(forms.Form):
     message = forms.CharField(
-            widget=forms.TextInput(
-                attrs={"class": "form-control"}
-                )
-            )
+        widget=forms.TextInput(
+            attrs={"class": "form-control"}
+        )
+    )
 
 
 class RoomForm(forms.Form):
 
-	name = forms.CharField(
-            widget=forms.TextInput(
-                attrs={"class": "form-control"}
-                )
-            )
+    name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={"class": "form-control"}
+        )
+    )

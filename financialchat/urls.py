@@ -16,7 +16,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('messages/', include('chat.urls', namespace='chat')),
+    path('rooms/', include('chat.urls', namespace='chat')),
     path('', include('profiles.urls', namespace='profiles')),
 ]
 

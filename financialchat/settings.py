@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #plugins
+    # plugins
     'channels',
 
     # project apps
@@ -144,3 +144,9 @@ CHANNEL_LAYERS = {
         }
     }
 }
+
+# Celery settings
+CELERY_BROKER_URL='redis://localhost:6379',
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'

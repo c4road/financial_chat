@@ -5,7 +5,7 @@
 <ul id='chat-items'>
 {% for chat in chat_messages reversed %}
 
-<li>{{ chat.message }} via {{ chat.user }}</li>
+<li>{{ chat.message }} via {{ chat.user.username }}</li>
 
 {% endfor %}
 </ul>
@@ -13,7 +13,7 @@
 <form id='form' method='POST'> {% csrf_token %}
 	<input type="hidden" id='myUsername' value='{{ user.username }}' />
 {{form.as_p }}
-<input type='submit' class='btn btn-primary'/>
+<input type='submit' value="Send" class='btn btn-primary'/>
 </form>
 
 {% endblock %}
@@ -22,14 +22,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.js"></script>
 
 <script>
-// websocket scripts
-let loc = window.location
 
+let loc = window.location
 let formData = $('#form')
 let msgInput = $('#id_message')
 let chatHolder = $('#chat-items')
 let me = $("#myUsername").val()
-
 let wsStart = 'ws://'
 if (loc.protocol == 'https:'){
 	wsStart = 'wss://'
@@ -41,7 +39,7 @@ socket.onmessage = function(e){
 
 	console.log("message", e)
 	let chatDataMsg = JSON.parse(e.data)
-	chatHolder.append('<li>'+ chatDataMsg.message + ' via ' + chatDataMsg.username +'</li>')
+	chatHolder.append('<li>'+ chatDataMsg.message + ' vía ' + chatDataMsg.username +'</li>')
 
 }
 
@@ -50,8 +48,6 @@ socket.onopen = function(e){
 	formData.submit(function(event){
 		event.preventDefault()
 		let msgText = msgInput.val()
-		// chatHolder.append('<li>'+ msgText + ' via ' + me + '</>')
-		// let formDataSerialized = formData.serialize()
 		let finalData = {
 			'message': msgText
 		}
