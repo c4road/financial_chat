@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth import get_user_model
 
 from .models import User
 
@@ -35,7 +34,6 @@ class RegisterForm(forms.ModelForm):
         user = super(RegisterForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.is_active = True
-
         if commit:
             user.save()
         return user

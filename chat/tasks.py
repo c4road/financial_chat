@@ -1,20 +1,12 @@
-import time
 import json
-import logging
 import requests
 import csv
-from contextlib import closing
 
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 from celery import shared_task
 
-from financialchat.celery import app
-
 channel_layer = get_channel_layer()
-logger = logging.getLogger()
-
-# @app.task
 
 
 @shared_task
@@ -37,7 +29,7 @@ def get_stock_code(chat_room, ticker):
 
     except (requests.exceptions.ConnectionError, Exception) as e:
 
-        reponse['message'] = e
+        response['message'] = e
 
     if len(stock_closes) > 0 and not stock_closes[-1] == 'N/D':
 
