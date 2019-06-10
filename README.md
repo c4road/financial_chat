@@ -11,7 +11,7 @@ On Linux:
 virtualenv -p python3 financialchat
 cd ca_challenge
 git clone https://github.com/Ballanxe/financial_chat.git
-mv ca_challenge src 
+mv financial_chat src 
 source bin/activate
 cd src 
 pip install -r requirements.txt

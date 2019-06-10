@@ -6,7 +6,6 @@ class Thread(models.Model):
 
     name = models.CharField('Room name', max_length=70,
                             null=False, blank=False)
-    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 

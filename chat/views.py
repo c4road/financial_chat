@@ -41,9 +41,6 @@ class ThreadView(LoginRequiredMixin, FormMixin, DetailView):
     form_class = ComposeForm
     success_url = './'
 
-    def get_queryset(self):
-        return Thread.objects.by_user(self.request.user)
-
     def get_object(self):
         id_ = self.kwargs.get("pk")
         obj = get_object_or_404(Thread, pk=id_)
