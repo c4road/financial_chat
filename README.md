@@ -21,13 +21,20 @@ pip install -r requirements.txt
 
 The environment is using SQLite by default, to make easier to run and test the project. 
 
-After setup the DB, you need to run the following commands to have the data scheme right.
+Minimalistic implementation of custom user model. It could be more minimalistic.
 
-Remember to start a redis server first
+Mr. Bot algorithm could be optimized without using dictionary object, just using a list. But I thing it is more elegant! 
+
+
+
+Do not forget start redis server !
 
 ```bash
-$ redis-server
+redis-server
 ```
+
+You know the drill !
+
 
 ```bash
 python manage.py makemigrations profiles chat
@@ -36,8 +43,23 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-There you will be prompted to enter the superuser credentials: username, email
-and password.
+## Testing
+
+Currently 75%, nothing fancy !
+
+```bash
+coverage run --source='profiles','chat' manage.py test
+coverage report
+```
+
+Check PEP8 compliance !
+
+```bash
+flake8 profiles chat
+```
+
+
+
 
 
 

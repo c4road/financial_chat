@@ -1,7 +1,5 @@
 from django.test import TestCase
 
-from django.urls import reverse
-
 from .models import User
 # Create your tests here.
 
@@ -55,10 +53,10 @@ class TestingViews(TestCase):
                             'email': 'user1@gmail.com',
                             'password1': 'secret',
                             'password2': 'secret'
-            })
+            }, follow=True)
 
         new_user = User.objects.get(username='user1')
-        self.assertEqual(response.status_code, 302)
+        redirect_chain = response.redirect_chain
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(redirect_chain[0][1], 302)
         self.assertTrue(new_user)
-
-
