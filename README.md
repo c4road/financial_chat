@@ -27,19 +27,19 @@ Mr. Bot algorithm could be optimized without using dictionary object, just using
 
 
 
-Do not forget start redis server in a separate terminal!
+Do not forget start redis server in a separate terminal
 
 ```bash
 redis-server
 ```
 
-And run the celery worker, also in a separate terminal!
+And run the celery worker, also in a separate terminal
 
 ```bash
 celery -A financialchat worker -l info
 ```
 
-Then, you know the drill !
+Then, you know the drill!
 
 
 ```bash
@@ -51,14 +51,14 @@ python manage.py runserver
 
 ## Testing
 
-Currently 75%, nothing fancy !
+Currently 75%, nothing fancy!
 
 ```bash
 coverage run --source='profiles','chat' manage.py test
 coverage report
 ```
 
-Check PEP8 compliance !
+Check PEP8 compliance!
 
 ```bash
 flake8 profiles chat
