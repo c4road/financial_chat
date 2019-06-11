@@ -26,13 +26,20 @@ Minimalistic implementation of custom user model. It could be more minimalistic.
 Mr. Bot algorithm could be optimized without using dictionary object, just using a list. But I thing it is more elegant! 
 
 
-Do not forget start redis server !
+
+Do not forget start redis server in a separate terminal!
 
 ```bash
 redis-server
 ```
 
-You know the drill !
+And run the celery worker, also in a separate terminal!
+
+```bash
+celery -A financialchat worker -l info
+```
+
+Then, you know the drill !
 
 
 ```bash
